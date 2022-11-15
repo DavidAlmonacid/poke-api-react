@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Flexo';
+  src: local('Flexo Regular'), local('Flexo-Regular'),
+    url('Flexo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Flexo';
+  src: local('Flexo Medium'), local('Flexo-Medium'),
+    url('Flexo-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Flexo';
+  src: local('Flexo DemiBold'), local('Flexo-Demi'),
+    url('Flexo-Demi.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Flexo';
+  src: local('Flexo Bold'), local('Flexo-Bold'),
+    url('Flexo-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
