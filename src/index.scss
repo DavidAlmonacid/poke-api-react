@@ -1,17 +1,17 @@
 @import url('/assets/fonts/flexo/stylesheet.css');
 
 :root {
-  /* Main colors */
+  // Main colors
   --background: rgb(59, 103, 125);
   --titles: hsl(229, 23%, 23%);
   --text: hsl(227, 10%, 46%);
 
-  /* Card colors */
+  // Card colors
   --body: hsl(40, 87%, 91%);
   --picture: hsl(33, 61%, 88%);
   --border-type: hsl(0, 0%, 64%);
 
-  /* Types colors */
+  // Types colors
   --bug: hsl(72, 48%, 44%);
   --dark: hsl(0, 0%, 36%);
   --dragon: hsl(262, 92%, 56%);
@@ -65,6 +65,11 @@ picture {
 img {
   display: block;
   width: 100%;
+}
+
+h2 {
+  font-size: 18px;
+  color: var(--titles);
 }
 
 @media (min-width: 600px) {

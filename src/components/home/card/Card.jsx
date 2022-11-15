@@ -19,7 +19,7 @@ const Card = ({ pokemon }) => {
             />
           </picture>
 
-          <h2 className='pokemon__name'></h2>
+          <h2 className='pokemon__name'>{pokemon.name}</h2>
           <p className='pokemon__hp'></p>
           <div className='pokemon__types'></div>
           <div className='pokemon__stats'></div>
