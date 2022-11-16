@@ -15,6 +15,21 @@
   gap: 12px;
 
   &__image-container {
+    margin-top: -106px;
+    border-radius: 9em;
+    padding: 16px;
     width: 212px;
+    background-color: var(--picture);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+  }
+
+  &__name {
+    text-transform: capitalize;
+  }
+
+  &__hp {
+    font-weight: 500;
+    font-size: 15px;
   }
 }

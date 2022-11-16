@@ -4,11 +4,13 @@ import './Home.scss';
 
 const Home = () => {
   const [pokemon, setPokemon] = useState({});
+  const [id, setId] = useState(4);
+  const API = `https://pokeapi.co/api/v2/pokemon/${id}`;
 
   useEffect(() => {
-    const fetchData = async (id) => {
+    const fetchData = async () => {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+        const response = await fetch(API);
         const data = await response.json();
         console.log(data);
 
@@ -27,7 +29,7 @@ const Home = () => {
       }
     };
 
-    fetchData(4);
+    fetchData();
   }, []);
 
   return (
