@@ -1,31 +1,43 @@
 import './Card.scss';
 
-const Card = ({ pokemon }) => {
+const Card = ({ isLoading, pokemon }) => {
   return (
-    <article className='card'>
-      <div className='card__top'>
-        <picture>
-          <img src='/assets/icons/bg-pattern-card.svg' alt='' />
-        </picture>
-      </div>
+    <div>
+      {isLoading ? (
+        <div className='loadingBar'>
+          <div className='loadingBar__progress'></div>
+        </div>
+      ) : (
+        <article className='card'>
+          <div className='card__top'>
+            <picture>
+              <img src='/assets/icons/bg-pattern-card.svg' alt='' />
+            </picture>
+          </div>
 
-      <div className='card__body'>
-        <section className='pokemon'>
-          <picture className='pokemon__image-container'>
-            <img
-              src={pokemon.image}
-              alt={pokemon.name}
-              className='pokemon__image'
-            />
-          </picture>
+          <div className='card__body'>
+            <section className='pokemon'>
+              <picture className='pokemon__image-container'>
+                <img
+                  src={pokemon.image}
+                  alt={pokemon.name}
+                  className='pokemon__image'
+                />
+              </picture>
 
-          <h2 className='pokemon__name'>{pokemon.name}</h2>
-          <p className='pokemon__hp'>{pokemon.HP}</p>
-          <div className='pokemon__types'></div>
-          <div className='pokemon__stats'></div>
-        </section>
-      </div>
-    </article>
+              <h2 className='pokemon__name'>{pokemon.name}</h2>
+              <p className='pokemon__hp'>{pokemon.HP}</p>
+              <div className='pokemon__types'>
+                {pokemon.types.map((item) => (
+                  <span key={item.type.name}>{item.type.name}</span>
+                ))}
+              </div>
+              <div className='pokemon__stats'></div>
+            </section>
+          </div>
+        </article>
+      )}
+    </div>
   );
 };
 

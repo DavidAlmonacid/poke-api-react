@@ -4,7 +4,8 @@ import './Home.scss';
 
 const Home = () => {
   const [pokemon, setPokemon] = useState({});
-  const [id, setId] = useState(4);
+  const [isLoading, setIsLoading] = useState(true);
+  const [id, setId] = useState(1);
   const API = `https://pokeapi.co/api/v2/pokemon/${id}`;
 
   useEffect(() => {
@@ -12,7 +13,6 @@ const Home = () => {
       try {
         const response = await fetch(API);
         const data = await response.json();
-        console.log(data);
 
         setPokemon({
           image: data.sprites.other['official-artwork'].front_default,
@@ -24,6 +24,10 @@ const Home = () => {
           specialDefense: data.stats[4].base_stat,
           types: data.types,
         });
+
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1600);
       } catch (error) {
         console.error(error);
       }
@@ -34,7 +38,7 @@ const Home = () => {
 
   return (
     <main className='main-content'>
-      <Card pokemon={pokemon} />
+      <Card isLoading={isLoading} pokemon={pokemon} />
     </main>
   );
 };
