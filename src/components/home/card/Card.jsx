@@ -11,13 +11,13 @@ const Card = ({ isLoading, setIsLoading, pokemon, setId, getRandomId }) => {
   };
 
   return (
-    <div>
+    <>
       {isLoading ? (
         <div className='loadingBar'>
           <div className='loadingBar__progress'></div>
         </div>
       ) : (
-        <div>
+        <>
           <article className='card'>
             <div className='card__top'>
               <picture>
@@ -53,10 +53,12 @@ const Card = ({ isLoading, setIsLoading, pokemon, setId, getRandomId }) => {
             </div>
           </article>
 
-          <button onClick={handleClick}>Random Pokémon</button>
-        </div>
+          <button className='randomPokemon' onClick={handleClick}>
+            Random Pokémon
+          </button>
+        </>
       )}
-    </div>
+    </>
   );
 };
 
