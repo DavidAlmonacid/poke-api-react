@@ -3,9 +3,23 @@ import Card from './card/Card';
 import './Home.scss';
 
 const Home = () => {
+  const getRandomId = () => {
+    const min = 0;
+    const max = 906;
+    let randomId = Math.round(Math.random() * (max - min)) + min;
+
+    if (randomId === min) {
+      randomId++;
+    } else if (randomId === max) {
+      randomId--;
+    }
+
+    return randomId;
+  };
+
   const [pokemon, setPokemon] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [id, setId] = useState(1);
+  const [id, setId] = useState(getRandomId);
   const API = `https://pokeapi.co/api/v2/pokemon/${id}`;
 
   useEffect(() => {
@@ -15,6 +29,7 @@ const Home = () => {
         const data = await response.json();
 
         setPokemon({
+          id: data.id,
           image: data.sprites.other['official-artwork'].front_default,
           name: data.name,
           HP: data.stats[0].base_stat,
@@ -27,18 +42,24 @@ const Home = () => {
 
         setTimeout(() => {
           setIsLoading(false);
-        }, 1600);
+        }, 800);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <main className='main-content'>
-      <Card isLoading={isLoading} pokemon={pokemon} />
+      <Card
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+        pokemon={pokemon}
+        setId={setId}
+        getRandomId={getRandomId}
+      />
     </main>
   );
 };
