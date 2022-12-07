@@ -33,10 +33,12 @@ const Home = () => {
           image: data.sprites.other['official-artwork'].front_default,
           name: data.name,
           HP: data.stats[0].base_stat,
-          attack: data.stats[1].base_stat,
-          defense: data.stats[2].base_stat,
-          specialAttack: data.stats[3].base_stat,
-          specialDefense: data.stats[4].base_stat,
+          stats: [
+            { name: data.stats[1].stat.name, base: data.stats[1].base_stat },
+            { name: data.stats[3].stat.name, base: data.stats[3].base_stat },
+            { name: data.stats[2].stat.name, base: data.stats[2].base_stat },
+            { name: data.stats[4].stat.name, base: data.stats[4].base_stat },
+          ],
           types: data.types,
         });
 

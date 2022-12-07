@@ -13,8 +13,8 @@ const Card = ({ isLoading, setIsLoading, pokemon, setId, getRandomId }) => {
   return (
     <>
       {isLoading ? (
-        <div className='loadingBar'>
-          <div className='loadingBar__progress'></div>
+        <div className='loading-bar'>
+          <div className='loading-bar__progress'></div>
         </div>
       ) : (
         <>
@@ -37,6 +37,7 @@ const Card = ({ isLoading, setIsLoading, pokemon, setId, getRandomId }) => {
 
                 <h2 className='pokemon__name'>{pokemon.name}</h2>
                 <p className='pokemon__hp'>HP {pokemon.HP}</p>
+
                 <div className='pokemon__types'>
                   {pokemon.types.map((item) => (
                     <span
@@ -48,12 +49,24 @@ const Card = ({ isLoading, setIsLoading, pokemon, setId, getRandomId }) => {
                     </span>
                   ))}
                 </div>
-                <div className='pokemon__stats'></div>
+
+                <div className='pokemon__stats'>
+                  {pokemon.stats.map((stat) => (
+                    <section className='pokemon__stat' key={stat.name}>
+                      <h2 className='pokemon__stat-base'>{stat.base}</h2>
+                      <p className='pokemon__stat-name'>
+                        {stat.name.includes('-')
+                          ? stat.name.replace('-', ' ')
+                          : stat.name}
+                      </p>
+                    </section>
+                  ))}
+                </div>
               </section>
             </div>
           </article>
 
-          <button className='randomPokemon' onClick={handleClick}>
+          <button className='random-pokemon' onClick={handleClick}>
             Random Pokémon
           </button>
         </>
