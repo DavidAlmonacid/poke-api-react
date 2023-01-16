@@ -1,10 +1,7 @@
+import bgPatternCard from '@assets/icons/bg-pattern-card.svg';
 import './Card.scss';
 
 const Card = ({ isLoading, setIsLoading, pokemon, setId, getRandomId }) => {
-  if (!isLoading) {
-    console.log(pokemon.id);
-  }
-
   const handleClick = () => {
     setIsLoading(true);
     setId(getRandomId);
@@ -21,7 +18,7 @@ const Card = ({ isLoading, setIsLoading, pokemon, setId, getRandomId }) => {
           <article className='card'>
             <div className='card__top'>
               <picture>
-                <img src='/assets/icons/bg-pattern-card.svg' alt='' />
+                <img src={bgPatternCard} alt='background pattern' />
               </picture>
             </div>
 
